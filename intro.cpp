@@ -1,7 +1,6 @@
 #include <graphics.h>
 #include <iostream>
-#include <ctime>
-#include <chrono>
+#include <cstdlib>
 
 using namespace std;
 
@@ -10,7 +9,7 @@ void drawGameMenu();
 
 int main()
 {
-//    initwindow(1280, 720, "H&M Arcade"); // Setting window size as per resolution
+//    initwindow(1280, 720, "H&M Arcade");
 	initwindow(1362, 800, "H&M Arcade");
 	
     drawLogo();
@@ -23,13 +22,17 @@ int main()
 	                cleardevice();
 	                settextstyle(3, HORIZ_DIR, 4);
 	                outtextxy(300, 100, "Hangman");
+	                const char* path="C:\\Users\\LENOVO\\Downloads\\hangman.exe";
+	                system(path);
 	                //displayLoadingScreen(2);
 	                // code
 	                break;
-	            } else if(ch == 'f' || ch == 'F') {
+	            } else if(ch == 'p' || ch == 'P') {
 	                cleardevice();
 	                settextstyle(3, HORIZ_DIR, 4);
-	                outtextxy(300, 100, "Flappy Bird");
+	                outtextxy(300, 100, "Pacman");
+	                const char* path="C:\\Users\\LENOVO\\Downloads\\pacman.exe";
+	                system(path);
 	                //displayLoadingScreen(2);
 	                // code
 	                break;
@@ -116,12 +119,12 @@ void drawGameMenu()
 {
 cleardevice();
 
-// Draw menu on left side of screen
+// Menu
 setcolor(CYAN);
 settextstyle(2, 0, 10);
 outtextxy(50, 100, "[H] HangMan");
 setcolor(GREEN);
-outtextxy(50, 250, "[F] Flappy Chick");
+outtextxy(50, 250, "[P] Pacman");
 //setcolor(YELLOW);
 //outtextxy(50, 400, "[P] 2Pac Man");
 //setcolor(MAGENTA);
@@ -131,7 +134,7 @@ outtextxy(50, 250, "[F] Flappy Chick");
 setcolor(LIGHTRED);
 outtextxy(600, 400, "[E] Exit");
 
-// Draw H&M and Arcade text on right side of screen
+// H&M and Arcade text
 settextstyle(3, 0, 10);
 setcolor(RED);
 int x = getmaxx();
